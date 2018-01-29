@@ -1,2 +1,2 @@
 # hashmap
-a simple hashmap with C
+一个基于redis中字典类型封装得来的hashmap
