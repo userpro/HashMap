@@ -1,5 +1,5 @@
 # hashmap
-	一个基于redis中字典类型封装得来的hashmap (稍稍改了点 emmm...)
+一个基于redis中字典类型封装得来的hashmap (稍稍改了点 emmm...)
 
 键类型为字符串
 
