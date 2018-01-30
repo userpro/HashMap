@@ -6,10 +6,10 @@ int main(int argc, char const *argv[])
     HashMap m = hm_init();
 
     // string
-    printf("insert code: %d\n", hm_set(m, "hi", "wocao", hm_str)); // 0=>OK  1=>ERR
-    printf("hi: %s\n", hm_get(m, "hi", hm_str));
-    hm_update(m, "hi", "fkfkfkf", hm_str);
-    printf("hi: %s\n", hm_get(m, "hi", hm_str));
+    printf("insert code: %d\n", hm_set(m, "hi", "wocao", HM_STR)); // 0=>OK  1=>ERR
+    printf("hi: %s\n", hm_get(m, "hi", HM_STR));
+    hm_update(m, "hi", "fkfkfkf", HM_STR);
+    printf("hi: %s\n", hm_get(m, "hi", HM_STR));
 
     // int32
     hm_set(m, "kkk", 10, int32);
@@ -40,8 +40,8 @@ int main(int argc, char const *argv[])
     // pointer
     int tt = 101;
     int *iptr = &tt;
-    hm_set(m, "TAT", iptr, hm_ptr);
-    printf("%d\n", *(int *)hm_get(m, "TAT", hm_ptr));
+    hm_set(m, "TAT", iptr, HM_PTR);
+    printf("%d\n", *(int *)hm_get(m, "TAT", HM_PTR));
 
     // simple
     HashMap mm = hm_init();

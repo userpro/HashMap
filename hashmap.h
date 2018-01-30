@@ -4,8 +4,8 @@
 #include "dict.h"
 
 /* .h macros */
-#define hm_str_t const void *
-#define hm_ptr_t const void *
+#define HM_STR_t const void *
+#define HM_PTR_t const void *
 #define double_t double
 
 /* Get */
@@ -62,32 +62,32 @@ typedef _HashMap* HashMap; /* Basic Type */
 
 HashMap hm_init();
 
-hm_get_h(hm_str);
-hm_get_h(hm_ptr);
+hm_get_h(HM_STR);
+hm_get_h(HM_PTR);
 hm_get_h(int32);
 hm_get_h(uint32);
 hm_get_h(int64);
 hm_get_h(uint64);
 hm_get_h(double);
 
-hm_set_h(hm_str);
-hm_set_h(hm_ptr);
+hm_set_h(HM_STR);
+hm_set_h(HM_PTR);
 hm_set_h(int32);
 hm_set_h(uint32);
 hm_set_h(int64);
 hm_set_h(uint64);
 hm_set_h(double);
 
-hm_update_h(hm_str);
-hm_update_h(hm_ptr);
+hm_update_h(HM_STR);
+hm_update_h(HM_PTR);
 hm_update_h(int32);
 hm_update_h(uint32);
 hm_update_h(int64);
 hm_update_h(uint64);
 hm_update_h(double);
 
-hm_del_h(hm_str);
-hm_del_h(hm_ptr);
+hm_del_h(HM_STR);
+hm_del_h(HM_PTR);
 hm_del_h(int32);
 hm_del_h(uint32);
 hm_del_h(int64);

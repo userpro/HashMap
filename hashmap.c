@@ -47,32 +47,32 @@ static void _hashmapKVDestructor(const void *data)
 }
 
 
-hm_get_h(hm_str) { get_ret(hm->dt, key, field_str, NULL);        }
-hm_get_h(hm_ptr) { get_ret(hm->dt, key, field_ptr, NULL);        }
+hm_get_h(HM_STR) { get_ret(hm->dt, key, field_str, NULL);        }
+hm_get_h(HM_PTR) { get_ret(hm->dt, key, field_ptr, NULL);        }
 hm_get_h(int32)  { get_ret(hm->dt, key, field_s64, INT_MAX);     }
 hm_get_h(uint32) { get_ret(hm->dt, key, field_u64, UINT_MAX);    }
 hm_get_h(int64)  { get_ret(hm->dt, key, field_s64, LONG_MAX);    }
 hm_get_h(uint64) { get_ret(hm->dt, key, field_u64, ULONG_MAX);   }
 hm_get_h(double) { get_ret(hm->dt, key, field_d, DBL_MAX);       }
 
-hm_set_h(hm_str) { return dictAdd(hm->dt, key, value);           }
-hm_set_h(hm_ptr) { return dictAdd(hm->dt, key, value);           }
+hm_set_h(HM_STR) { return dictAdd(hm->dt, key, value);           }
+hm_set_h(HM_PTR) { return dictAdd(hm->dt, key, value);           }
 hm_set_h(int32)  { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(uint32) { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(int64)  { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(uint64) { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(double) { set_not_str(dictSetDoubleVal);                }
 
-hm_update_h(hm_str) { return dictReplace(hm->dt, key, newvalue); }
-hm_update_h(hm_ptr) { return dictReplace(hm->dt, key, newvalue); }
+hm_update_h(HM_STR) { return dictReplace(hm->dt, key, newvalue); }
+hm_update_h(HM_PTR) { return dictReplace(hm->dt, key, newvalue); }
 hm_update_h(int32)  { update_not_str(dictSetSignedIntegerVal);   }
 hm_update_h(int64)  { update_not_str(dictSetSignedIntegerVal);   }
 hm_update_h(uint32) { update_not_str(dictSetUnsignedIntegerVal); }
 hm_update_h(uint64) { update_not_str(dictSetUnsignedIntegerVal); }
 hm_update_h(double) { update_not_str(dictSetDoubleVal);          }
 
-hm_del_h(hm_str) { dictDelete(hm->dt, key);       }
-hm_del_h(hm_ptr) { dictDelete(hm->dt, key);       }
+hm_del_h(HM_STR) { dictDelete(hm->dt, key);       }
+hm_del_h(HM_PTR) { dictDelete(hm->dt, key);       }
 hm_del_h(int32)  { dictDeleteNoFree(hm->dt, key); }
 hm_del_h(uint32) { dictDeleteNoFree(hm->dt, key); }
 hm_del_h(int64)  { dictDeleteNoFree(hm->dt, key); }

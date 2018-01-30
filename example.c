@@ -9,8 +9,8 @@ int main()
     hm_update(mm, "QAQ", 6.28, double);
     hm_get(mm, "QAQ", double);
     
-    hm_set(mm, "QWQ", "hello world", hm_str);
-    printf("%s\n", hm_get(mm, "QWQ", hm_str));
+    hm_set(mm, "QWQ", "hello world", HM_STR);
+    printf("%s\n", hm_get(mm, "QWQ", HM_STR));
 
     hm_release(mm);
     return 0;
