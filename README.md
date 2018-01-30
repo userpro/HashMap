@@ -5,7 +5,7 @@
 
 值类型可以为字符串 整数 浮点数
 
-##Example
+## Example
 
 ~~~c
 #include <stdio.h>
