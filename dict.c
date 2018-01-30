@@ -248,7 +248,7 @@ static void _dictRehashStep(dict *d) {
     dictRehash(d,1);
 }
 
-int dictAdd(dict *d, void *key, void *val)
+int dictAdd(dict *d, const void *key, const void *val)
 {
     dictEntry *entry = dictAddRaw(d,key);
     if (!entry) return DICT_ERR;
@@ -262,7 +262,7 @@ int dictAdd(dict *d, void *key, void *val)
  * 如果键不存在 那么程序创建新的哈希节点 
  * 将节点和键关联 并插入到字典 然后返回节点本身
  */
-dictEntry *dictAddRaw(dict *d, void *key)
+dictEntry *dictAddRaw(dict *d, const void *key)
 {
     int index;
     dictEntry *entry;
@@ -290,7 +290,7 @@ dictEntry *dictAddRaw(dict *d, void *key)
  * 如果键值对为全新添加 那么返回 1 
  * 如果键值对是通过对原有的键值对更新得来的 那么返回 0 
  */
-int dictReplace(dict *d, void *key, void *val)
+int dictReplace(dict *d, const void *key, const void *val)
 {
     dictEntry *entry, auxentry;
 
@@ -320,7 +320,7 @@ int dictReplace(dict *d, void *key, void *val)
  * 不论发生以上的哪一种情况 
  * dictAddRaw() 都总是返回包含给定 key 的字典节点
  */
-dictEntry *dictReplaceRaw(dict *d, void *key) {
+dictEntry *dictReplaceRaw(dict *d, const void *key) {
     dictEntry *entry = dictFind(d,key);
     return entry ? entry : dictAddRaw(d,key);
 }
@@ -448,7 +448,7 @@ void *dictFetchValue(dict *d, const void *key) {
 
     he = dictFind(d,key);
 
-    return he ? dictGetVal(he) : NULL;
+    return he ? (void *)dictGetVal(he) : NULL;
 }
 
 /* Function to reverse bits. Algorithm from:

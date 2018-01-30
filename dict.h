@@ -7,10 +7,10 @@
 #define DICT_ERR 1
 
 typedef struct dictEntry {    
-    void *key;
+    const void *key;
 
     union {
-        void *val;
+        const void *val;
         uint64_t u64;
         int64_t s64;
         double d;
@@ -25,8 +25,8 @@ typedef struct dictType {
     void *(*keyDup)(const void *key);
     void *(*valDup)(const void *obj);
     int (*keyCompare)(const void *key1, const void *key2);
-    void (*keyDestructor)(void *key);
-    void (*valDestructor)(void *obj);
+    void (*keyDestructor)(const void *key);
+    void (*valDestructor)(const void *obj);
 } dictType;
 
 
@@ -94,10 +94,10 @@ typedef struct dict {
 /* API */
 dict *dictCreate(dictType *type);
 int dictExpand(dict *d, unsigned long size);
-int dictAdd(dict *d, void *key, void *val);
-dictEntry *dictAddRaw(dict *d, void *key);
-int dictReplace(dict *d, void *key, void *val);
-dictEntry *dictReplaceRaw(dict *d, void *key);
+int dictAdd(dict *d, const void *key, const void *val);
+dictEntry *dictAddRaw(dict *d, const void *key);
+int dictReplace(dict *d, const void *key, const void *val);
+dictEntry *dictReplaceRaw(dict *d, const void *key);
 int dictDelete(dict *d, const void *key);
 int dictDeleteNoFree(dict *d, const void *key);
 void dictRelease(dict *d);
