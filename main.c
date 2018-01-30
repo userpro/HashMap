@@ -37,6 +37,12 @@ int main(int argc, char const *argv[])
     hm_update(m, "vav", 6.28, double);
     printf("vav: %f\n", hm_get(m, "vav", double));
 
+    // pointer
+    int tt = 101;
+    int *iptr = &tt;
+    hm_set(m, "TAT", iptr, hm_ptr);
+    printf("%d\n", *(int *)hm_get(m, "TAT", hm_ptr));
+
     // simple
     HashMap mm = hm_init();
     hm_set(mm, "QAQ", 3.14, double);
