@@ -43,6 +43,7 @@ int main(int argc, char const *argv[])
     hm_get(mm, "QAQ", double);
     hm_update(mm, "QAQ", 6.28, double);
     hm_get(mm, "QAQ", double);
+    hm_release(mm);
 
     hm_release(m);
     return 0;
