@@ -27,19 +27,21 @@ int main()
 }
 ~~~
 
+详见main.c
+
 ## API
 >预定义类型宏
->>*`hm_str` 字符串 
+>>* `hm_str` 字符串 
 >>
->>*`int32` 32位有符号整数
+>>* `int32` 32位有符号整数
 >>
->>*`uint32` 32位无符号整数
+>>* `uint32` 32位无符号整数
 >>
->>*`int64` 64位有符号整数
+>>* `int64` 64位有符号整数
 >>
->>*`uint64` 64位无符号整数
+>>* `uint64` 64位无符号整数
 >>
->>*`double` 双精度浮点型
+>>* `double` 双精度浮点型
 
 `HashMap` 
 >哈希表指针类型
@@ -59,5 +61,5 @@ int main()
 `hm_del(哈希表指针, 键(字符串类型))`
 >返回值 => 无
 
-##Usage
+## Usage
 `gcc yourfile.c hashmap.c dict.c` or `g++ yourfile.c hashmap.c dict.c`
