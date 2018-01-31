@@ -56,23 +56,23 @@ hm_get_h(uint64) { get_ret(hm->dt, key, field_u64, ULONG_MAX);   }
 hm_get_h(double) { get_ret(hm->dt, key, field_d, DBL_MAX);       }
 
 hm_set_h(HM_STR) { return dictAdd(hm->dt, key, value);           }
-hm_set_h(HM_PTR) { return dictAdd(hm->dt, key, value);           }
+hm_set_h(HM_PTR) { set_not_str(dictSetPtr);                      }
 hm_set_h(int32)  { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(uint32) { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(int64)  { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(uint64) { set_not_str(dictSetUnsignedIntegerVal);       }
 hm_set_h(double) { set_not_str(dictSetDoubleVal);                }
 
-hm_update_h(HM_STR) { return dictReplace(hm->dt, key, newvalue); }
-hm_update_h(HM_PTR) { return dictReplace(hm->dt, key, newvalue); }
-hm_update_h(int32)  { update_not_str(dictSetSignedIntegerVal);   }
-hm_update_h(int64)  { update_not_str(dictSetSignedIntegerVal);   }
-hm_update_h(uint32) { update_not_str(dictSetUnsignedIntegerVal); }
-hm_update_h(uint64) { update_not_str(dictSetUnsignedIntegerVal); }
-hm_update_h(double) { update_not_str(dictSetDoubleVal);          }
+hm_update_h(HM_STR) { return dictReplace(hm->dt, key, newvalue);         }
+hm_update_h(HM_PTR) { update_not_str(dictSetPtr, HM_PTR);                }
+hm_update_h(int32)  { update_not_str(dictSetSignedIntegerVal, int32);    }
+hm_update_h(int64)  { update_not_str(dictSetSignedIntegerVal, int64);    }
+hm_update_h(uint32) { update_not_str(dictSetUnsignedIntegerVal, uint32); }
+hm_update_h(uint64) { update_not_str(dictSetUnsignedIntegerVal, uint64); }
+hm_update_h(double) { update_not_str(dictSetDoubleVal, double);          }
 
 hm_del_h(HM_STR) { dictDelete(hm->dt, key);       }
-hm_del_h(HM_PTR) { dictDelete(hm->dt, key);       }
+hm_del_h(HM_PTR) { dictDeleteNoFree(hm->dt, key); }
 hm_del_h(int32)  { dictDeleteNoFree(hm->dt, key); }
 hm_del_h(uint32) { dictDeleteNoFree(hm->dt, key); }
 hm_del_h(int64)  { dictDeleteNoFree(hm->dt, key); }

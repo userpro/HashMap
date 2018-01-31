@@ -35,12 +35,12 @@
 
 /* Update */
 #define hm_update_h(type) int hm_##type##_update(HashMap hm, const char *key, type##_t newvalue)
-#define update_not_str(settype) do { \
+#define update_not_str(settype, type) do { \
     dictEntry *entry = dictFind(hm->dt, key); \
     if (entry != NULL) \
         settype(entry, newvalue); \
     else  \
-        return hm_set(hm, key, newvalue, int64); \
+        return hm_set(hm, key, newvalue, type); \
     return DICT_OK; \
 } while (0)
 

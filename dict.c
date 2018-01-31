@@ -354,10 +354,10 @@ static int dictGenericDelete(dict *d, const void *key, int nofree)
                     d->ht[table].table[idx] = he->next;
 
                 if (!nofree) {
-                    dictFreeKey(d, he);
                     dictFreeVal(d, he);
                 }
                 
+                dictFreeKey(d, he);
                 free(he);
                 d->ht[table].used--;
 

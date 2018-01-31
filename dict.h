@@ -57,6 +57,9 @@ typedef struct dict {
         entry->v.val = (_val_); \
 } while(0)
 
+#define dictSetPtr(entry, _val_) \
+    do { (entry)->v.val = _val_; } while(0)
+
 #define dictSetSignedIntegerVal(entry, _val_) \
     do { (entry)->v.s64 = _val_; } while(0)
 
