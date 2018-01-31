@@ -41,6 +41,8 @@ int main(int argc, char const *argv[])
     printf("[set] vav: %f\n", hm_get(m, "vav", double));
     hm_update(m, "vav", 6.28, double);
     printf("[update] vav: %f\n", hm_get(m, "vav", double));
+    hm_update(m, "vvv", 7.777, double);
+    printf("[update add] vvv: %f\n", hm_get(m, "vvv", double));
 
     // pointer
     printf("--- pointer ---\n");
